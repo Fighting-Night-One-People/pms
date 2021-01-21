@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("example")
-public class HelloWorld {
+public class Example {
     @GetMapping("/getExample/{id}")
     public String getString(@PathVariable("id") String id){
         return "Hello World";
