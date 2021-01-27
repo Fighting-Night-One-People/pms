@@ -24,12 +24,15 @@
     where id = #{id,jdbcType=CHAR}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.gengshuaishuai.pms.example.entity.Example" useGeneratedKeys="true">
-    insert into example (`name`, description, create_user, update_user)
-    values (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR})
+    insert into example (id,`name`, description, create_user, update_user)
+    values (#{id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gengshuaishuai.pms.example.entity.Example" useGeneratedKeys="true">
     insert into example
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null and id != ''">
+        id,
+      </if>
       <if test="name != null">
         `name`,
       </if>
@@ -44,6 +47,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null and id != ''">
+        #{id,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
