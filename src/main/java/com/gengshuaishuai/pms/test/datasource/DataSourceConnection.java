@@ -9,20 +9,16 @@ import java.sql.Connection;
 /**
  * @author 耿帅帅
  * @version 1.0
- * @date 2021/1/27 13:09
+ * @date 2021/2/19 11:36
  * @description
  */
 @Slf4j
-public class TestDataSource {
-    public static void main(String[] args) {
-        TestDataSource.testOracle();
-    }
-
-    public static void testMysql() {
+public class DataSourceConnection {
+    public static void connectionMysql() {
         Connection conn = null;
         DataSource dataSource = DataSourceBuilder.create()
                 .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://localhost:3306/pms")
+                .url("jdbc:mysql://localhost:3306/pms?serverTimezone=GMT")
                 .username("root")
                 .password("root")
                 .build();
@@ -43,7 +39,8 @@ public class TestDataSource {
             }
         }
     }
-    public static void testOracle(){
+
+    public static void connectionOracle() {
         Connection conn = null;
         DataSource dataSource = DataSourceBuilder.create()
                 .driverClassName("oracle.jdbc.driver.OracleDriver")
