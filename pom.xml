@@ -64,6 +64,15 @@
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.3</version>
         </dependency>
+
+        <!--使用jedis连接redis数据库-->
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

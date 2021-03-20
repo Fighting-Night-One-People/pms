@@ -2,9 +2,11 @@ package com.gengshuaishuai.pms.test.datasource;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import redis.clients.jedis.Jedis;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.util.Set;
 
 /**
  * @author 耿帅帅
@@ -14,6 +16,9 @@ import java.sql.Connection;
  */
 @Slf4j
 public class DataSourceConnection {
+    /**
+     * 连接Mysql数据库
+     */
     public static void connectionMysql() {
         Connection conn = null;
         DataSource dataSource = DataSourceBuilder.create()
@@ -40,6 +45,9 @@ public class DataSourceConnection {
         }
     }
 
+    /**
+     * 连接Oracle数据库
+     */
     public static void connectionOracle() {
         Connection conn = null;
         DataSource dataSource = DataSourceBuilder.create()
@@ -64,5 +72,14 @@ public class DataSourceConnection {
                 }
             }
         }
+    }
+
+    /**
+     * 连接Redis数据库
+     */
+    public static void ConnectionRedis() {
+        Jedis jedis = new Jedis();
+        Set<String> keys = jedis.keys("*");
+        log.info(keys.toString());
     }
 }

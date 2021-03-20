@@ -1,6 +1,7 @@
 package com.gengshuaishuai.pms.test.datasource;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 
 /**
  * @author 耿帅帅
@@ -20,5 +21,7 @@ public class Main {
         DataSourceConnection.connectionMysql();
         //执行mysql语句
         SqlExecute.mysqlExecute("select * from example");
+        //连接redis数据库
+        DataSourceConnection.ConnectionRedis();
     }
 }
