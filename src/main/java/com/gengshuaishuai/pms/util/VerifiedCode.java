@@ -1,6 +1,7 @@
 package com.gengshuaishuai.pms.util;
 
 import com.google.code.kaptcha.Producer;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 
@@ -16,5 +17,6 @@ public class VerifiedCode {
 
     @Resource(name = "captchaProducerMath")
     private Producer captchaProducerMath;
-    private
+    @Autowired
+    private RedisCache redisCache;
 }
